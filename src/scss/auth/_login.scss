@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login{
+    .uptask{
+       background: linear-gradient(to right,v.$rojo-ministerio 0%,lighten(v.$rojo-ministerio,30%) 100%);
+      color: transparent;
+       background-clip:text;
+       font-size: 6rem;
+       text-align: center;
+       @include m.tablet{
+        font-size: 10rem;
+       }
+    }
+    .boton{
+        @include m.boton(v.$rojo-ministerio,v.$blanco);
+    }
+}
