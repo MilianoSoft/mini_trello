@@ -49,9 +49,12 @@ class LoginController
     }
 
     //metodo logaut del sistema para salir de la seccion
-    public static function restablecer()
+    public static function restablecer(Router $router)
     {
-        echo "emos enviado a tu email un nuevo correo";
+        
+        $router->render('auth/restablecer',[
+
+        ]);
     }
     //metodo logaut del sistema para salir de la seccion
     public static function mensaje()

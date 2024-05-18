@@ -23,7 +23,7 @@
         </form>
         <div class="acciones">
             <a href="/">iniciar sesion</a>
-            <a href="/olvide">Aun no tienes cuenta? crear una</a>
+            <a href="/crear">Aun no tienes cuenta? crear una</a>
         </div>
     </div> <!-- contenedor sm -->
 
