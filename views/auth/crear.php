@@ -37,7 +37,7 @@
                     id="password"
                     placeholder="contraseña"
                     name="password"
-                    
+
                 >
 
             </div>
@@ -45,7 +45,7 @@
         <div class="campo">
                 <label for="password2">repetir password</label>
                 <input 
-                    type="password2"
+                    type="password"
                     id="password2"
                     placeholder="repetir contraseña"
                     name="password2"

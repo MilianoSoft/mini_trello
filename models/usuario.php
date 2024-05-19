@@ -17,6 +17,7 @@ class Usuario extends ActiveRecord{
         $this->nombre = $arg['nombre']?? " ";
         $this->email = $arg['email']?? " ";
         $this->password = $arg['password']?? " ";
+        $this->password2 = $arg['password2']?? " ";
         $this->token = $arg['token']?? " ";
         $this->confirmado = $arg['confirmado']?? " ";
 
@@ -35,6 +36,21 @@ class Usuario extends ActiveRecord{
 
             // al arreglo alertas agregamos un error
             self::$alertas['error'][]="El email es obligatorio";
+        }
+        //validaciones para el password que no este vacio
+        if(!$this->password){
+             // al arreglo alertas agregamos un error
+             self::$alertas['error'][]="El password no puede ir vacio";
+        }
+        //validaciones para el password numero de caracteres minimo
+        if(strlen( $this->password)< 6){
+             // al arreglo alertas agregamos un error
+             self::$alertas['error'][]="El password debe tener almenos 6 caractetes";
+        }
+        //validaciones para el password que no este vacio
+        if($this->password != $this->password2){
+             // al arreglo alertas agregamos un error
+             self::$alertas['error'][]="los password  no coinciden";
         }
         //retornamos alerta
         return self::$alertas;

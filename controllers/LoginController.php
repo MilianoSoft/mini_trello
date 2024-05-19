@@ -39,6 +39,7 @@ class LoginController
         if($_SERVER['REQUEST_METHOD']==='POST'){
             //sincronizo el usuario con el post
             $usuario->sincronizar($_POST);
+        
             //llamo el metodo de validacion de cuenta
             $alerta = $usuario->validarNuevaCuenta();
             debuguear($alerta);
