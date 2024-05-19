@@ -13,6 +13,7 @@
                     id="nombre"
                     placeholder="tu nombre"
                     name="nombre"
+                    value="<?php $usuario->nombre;?>"
                 >
 
             </div>
@@ -24,23 +25,25 @@
                     id="email"
                     placeholder="tu email"
                     name="email"
+                    value="<?php $usuario->email;?>"
                 >
 
             </div>
             <!-- password -->
         <div class="campo">
-                <label for="password">Contraseña</label>
+                <label for="password">password</label>
                 <input 
                     type="password"
                     id="password"
                     placeholder="contraseña"
                     name="password"
+                    
                 >
 
             </div>
             <!-- Repetir password -->
         <div class="campo">
-                <label for="password2">Repetir contraseña</label>
+                <label for="password2">repetir password</label>
                 <input 
                     type="password2"
                     id="password2"

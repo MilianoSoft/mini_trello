@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Usuario;
 use MVC\Router;
 
 //creo la clase Login Controller
@@ -32,10 +33,21 @@ class LoginController
     //metodo logaut del sistema para salir de la seccion
     public static function crear(Router $router)
     {
+        //instanciamos el usurio
+        $usuario = new Usuario;
+
+        if($_SERVER['REQUEST_METHOD']==='POST'){
+            //sincronizo el usuario con el post
+            $usuario->sincronizar($_POST);
+            //llamo el metodo de validacion de cuenta
+            $alerta = $usuario->validarNuevaCuenta();
+            debuguear($alerta);
+           
+        }
         //renderizando la vista  
         //el metodo render es un metodo de nuestro router 
         $router->render('auth/crear',[
-            
+            'usuario'=>$usuario,
         ]);
 
     }
@@ -57,13 +69,17 @@ class LoginController
         ]);
     }
     //metodo logaut del sistema para salir de la seccion
-    public static function mensaje()
+    public static function mensaje(Router $router)
     {
-        echo "hemos enviado un mensaje a tu correo ";
+        $router->render('auth/mensaje',[
+
+        ]);
     }
     //metodo logaut del sistema para salir de la seccion
-    public static function confirmar()
+    public static function confirmar(Router $router)
     {
-        echo "confirmamos tu mensaje gracias";
+        $router->render('auth/confirmar',[
+
+        ]);
     }
 }
