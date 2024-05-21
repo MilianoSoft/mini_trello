@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord{
 
     //creamos la tabla en el modelo
-    protected static $tabla = 'usurios';
+    protected static $tabla = 'usuarios';
 
     //creamos las columnas de la tabla
     protected static $columnasDB = ['id','nombre','email','pasword','token','confirmado'];
@@ -56,5 +56,4 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
-      
 }

@@ -4,6 +4,9 @@
     <div class="contenedor-sm">
         <p class="descripcion-pagina">Crea Tu Cuenta</p>
         <!-- agrego un formulario con el metodo post -->
+
+        <?php include_once __DIR__. '/../templates/alertas.php';?> 
+
         <form class="formulario" method="POST" action="/crear">
             <!-- nombre -->
         <div class="campo">

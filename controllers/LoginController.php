@@ -11,17 +11,16 @@ class LoginController
 
     //funsion publica para acceder desde cualquier lugar
     //funsion estatica desde se llama sintener que instanciar la clase
-    public static function login( Router $router)
+    public static function login(Router $router)
     {
         // si el servidor envia un metodo post entonces 
         if ($_SERVER['REQUEST_METHOD'] === 'post') {
         }
         //renderizando la vista  
         //el metodo render es un metodo de nuestro router 
-        $router->render('auth/login',[
-            'titulo'=>'iniciar sesion',
+        $router->render('auth/login', [
+            'titulo' => 'iniciar sesion',
         ]);
-
     }
 
     //metodo logaut del sistema para salir de la seccion
@@ -33,54 +32,57 @@ class LoginController
     //metodo logaut del sistema para salir de la seccion
     public static function crear(Router $router)
     {
+        $alertas = [];
         //instanciamos el usurio
         $usuario = new Usuario;
 
-        if($_SERVER['REQUEST_METHOD']==='POST'){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //sincronizo el usuario con el post
             $usuario->sincronizar($_POST);
-        
+
             //llamo el metodo de validacion de cuenta
-            $alerta = $usuario->validarNuevaCuenta();
-            debuguear($alerta);
-           
+            $alertas = $usuario->validarNuevaCuenta();
+            // si alerta esta vacion no hay campos vacios ejecuta el codigo de validar usuario
+            if (empty($alertas)) {
+                //si la validaciones de que no hay campos vacios son correctas entonce
+                //verifico si el usuario existe en la base de datos 
+                $existeUsuario = Usuario::where('email', $usuario->email);
+
+                //si existe el usurio
+                if ($existeUsuario) {
+                    Usuario::setAlerta('error', 'el usuario ya esta registrado');
+                    $alertas = Usuario::getAlertas();
+                }
+            }
         }
         //renderizando la vista  
         //el metodo render es un metodo de nuestro router 
-        $router->render('auth/crear',[
-            'usuario'=>$usuario,
+        $router->render('auth/crear', [
+            'usuario' => $usuario,
+            'alertas' => $alertas,
         ]);
-
     }
 
     //metodo logaut del sistema para salir de la seccion
     public static function olvide(Router $router)
     {
-        $router->render('auth/olvide',[
-
-        ]);
+        $router->render('auth/olvide', []);
     }
 
     //metodo logaut del sistema para salir de la seccion
     public static function restablecer(Router $router)
     {
-        
-        $router->render('auth/restablecer',[
 
-        ]);
+        $router->render('auth/restablecer', []);
     }
     //metodo logaut del sistema para salir de la seccion
     public static function mensaje(Router $router)
     {
-        $router->render('auth/mensaje',[
-
-        ]);
+        $router->render('auth/mensaje', []);
     }
     //metodo logaut del sistema para salir de la seccion
     public static function confirmar(Router $router)
     {
-        $router->render('auth/confirmar',[
-
-        ]);
+        $router->render('auth/confirmar', []);
     }
 }
