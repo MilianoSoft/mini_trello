@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use classes\Email;
 use Model\Usuario;
 use MVC\Router;
 
@@ -61,6 +62,8 @@ class LoginController
                   
                     // entonces creamos un nuevo usuario
                    $resultado= $usuario->guardar(); 
+
+                   $eamil = new Email;
                    
                    //verifico que halla un resultado
                    if($resultado){
@@ -95,7 +98,7 @@ class LoginController
     public static function mensaje(Router $router)
     {
         //enviamos el mensaje por correo electronico
-        
+
         $router->render('auth/mensaje', []);
     }
     //metodo logaut del sistema para salir de la seccion
