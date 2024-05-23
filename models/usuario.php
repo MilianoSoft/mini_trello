@@ -8,7 +8,7 @@ class Usuario extends ActiveRecord{
     protected static $tabla = 'usuarios';
 
     //creamos las columnas de la tabla
-    protected static $columnasDB = ['id','nombre','email','pasword','token','confirmado'];
+    protected static $columnasDB = ['id','nombre','email','password','token','confirmado'];
 
  public function __construct($arg=[])
  {
@@ -19,7 +19,7 @@ class Usuario extends ActiveRecord{
         $this->password = $arg['password']?? " ";
         $this->password2 = $arg['password2']?? " ";
         $this->token = $arg['token']?? " ";
-        $this->confirmado = $arg['confirmado']?? " ";
+        $this->confirmado = $arg['confirmado']?? 0;
 
     }
 
@@ -63,6 +63,8 @@ class Usuario extends ActiveRecord{
     }
 
     //metodo para generar el token del usuario a registrar
-    
+    public function obtenerToken(){
+        $this->token = uniqid($this->token);
+    }
 
 }

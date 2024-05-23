@@ -1,0 +1,6 @@
+en este proyecto uso el modelo mvc para crear el sistema, pero tenemos dos carpetas la de clases y la de funsiones que son extras, si tengo funciones reutilizables
+que se pueden usar durante dodo el proyecto las ubico en funsiones, si tengo clases que no depende de mas nada y que pueden ser 
+reutilizables las ubico en classes.
+
+hago uso de composer para administrar las dependencias de php,y node con npm para administrar las dependecias de javascript
+uso sasss para mayor desarrollo y bostramp para ayudarme con la interfaces 

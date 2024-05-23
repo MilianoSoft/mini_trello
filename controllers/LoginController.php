@@ -55,11 +55,19 @@ class LoginController
                 }else{
                     //hashear password
                     $usuario->hashPassword();
-
+                    $usuario->obtenerToken();
                     //eliminar la propiedad no necesaria del usuario 
                     unset($usuario->password2);
+                  
                     // entonces creamos un nuevo usuario
-                    debuguear($usuario);
+                   $resultado= $usuario->guardar(); 
+                   
+                   //verifico que halla un resultado
+                   if($resultado){
+                    //redireciono al mensaje
+                    header('Location:/mensaje');
+                   }
+
                 }
             }
         }
@@ -86,6 +94,8 @@ class LoginController
     //metodo logaut del sistema para salir de la seccion
     public static function mensaje(Router $router)
     {
+        //enviamos el mensaje por correo electronico
+        
         $router->render('auth/mensaje', []);
     }
     //metodo logaut del sistema para salir de la seccion
