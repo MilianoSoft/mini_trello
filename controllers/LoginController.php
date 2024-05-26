@@ -63,8 +63,10 @@ class LoginController
                     // entonces creamos un nuevo usuario
                    $resultado= $usuario->guardar(); 
 
-                   $eamil = new Email;
+                   $email = new Email($usuario->email,$usuario->nombre,$usuario->token);
                    
+                   $email->enviarConfirmacion();
+
                    //verifico que halla un resultado
                    if($resultado){
                     //redireciono al mensaje
