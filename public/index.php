@@ -2,11 +2,12 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\DasboardController;
 use Controllers\LoginController;
 use MVC\Router;
 $router = new Router();
 
-//LOGIN METODOS 
+//ZONA DE LOGIN  
 //metodo para llamar el login
 $router->get('/',[LoginController::class,'login']);
 //metodo para enviar el login
@@ -35,6 +36,11 @@ $router->post('/restablecer',[LoginController::class,'restablecer']);
 $router->get('/mensaje',[LoginController::class,'mensaje']);
 $router->get('/confirmar',[LoginController::class,'confirmar']);
 
+/*** ZONA DE PROYECTOS ****/
+
+//rutas del dasboard
+$router->get('/dasboard',[DasboardController::class,'index']);
+$router->post('/dasboard',[DasboardController::class,'index']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

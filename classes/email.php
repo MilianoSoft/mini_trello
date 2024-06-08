@@ -52,5 +52,36 @@ class Email
         $mailer->send();
     }
 
-    
+    //metodo para enviar instrucciones
+    public function enviarInstruciones(){
+        $mailer = new PHPMailer();
+        $mailer->isSMTP();
+        $mailer->Host = 'sandbox.smtp.mailtrap.io';
+        $mailer->SMTPAuth = true;
+        $mailer->Port = 2525;
+        $mailer->Username = '0c68bcee37d05a';
+        $mailer->Password = 'b49945bb25ff2f';
+
+        //quien envia el coreo
+        $mailer->setFrom('cuentas@upstask.com');
+        $mailer->addAddress('cuentas@uptask.com','upstask.com');
+        $mailer->Subject= 'Recuperar tu contraseña';
+
+        //delaramos que el mail sera html
+        $mailer->isHTML(true);
+        $mailer->CharSet='UTF-8';
+
+        //declaro una variable con el html
+        $contenido = "<html>";
+        $contenido .="<p> <strong> hola ". $this->nombre."</strong> para recuperar tu clave </p>";
+        $contenido.='<p>presiona aqui:<a href="http://localhost:3000/restablecer?token='.$this->token.'">Recuperar Password</a></p>';
+        $contenido.="<p> si no ha sido tu ignora este mensage </p>";
+        $contenido .="</html>";
+
+        //creamos el cuerpo del mensaje
+        $mailer->Body=$contenido;
+
+        //enviamos el mensaje
+        $mailer->send();
+    }
 }

@@ -3,6 +3,9 @@
 
     <div class="contenedor-sm">
         <p class="descripcion-pagina">olvidaste tu contraseña</p>
+        <!-- integro las alertas  -->
+        <?php include_once __DIR__.'/../templates/alertas.php';?>
+        
         <!-- agrego un formulario con el metodo post -->
         <form class="formulario" method="POST" action="/olvide">
     
