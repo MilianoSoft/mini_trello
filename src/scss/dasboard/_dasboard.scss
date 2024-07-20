@@ -12,5 +12,24 @@
    .principal{
 
       flex: 1;
+      
+   }
+
+   .contenido{
+      h2{
+         font-size: 2rem;
+         margin-top: 2rem;
+         margin: 2rem;
+         text-align: center;
+      }
+   }
+   .formulario{
+      input:not([type="submit"]){
+         background-color: v.$blanco;
+         font-size: 2rem;
+      }
+      input[type="submit"]{
+         
+      }
    }
 }

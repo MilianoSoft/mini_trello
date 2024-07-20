@@ -41,6 +41,7 @@ class ActiveRecord {
         return $resultado;
     }
 
+
     public static function all() {
         $query = "SELECT * FROM " . static::$tabla;
         $resultado = self::consultarSQL($query);
@@ -79,7 +80,6 @@ class ActiveRecord {
     public function crear() {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
-
         // Insertar en la base de datos
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .= join(', ', array_keys($atributos));

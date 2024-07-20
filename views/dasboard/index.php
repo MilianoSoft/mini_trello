@@ -1,10 +1,7 @@
-<div class="dasboard">
+<?php include_once __DIR__.'/../dasboard/headerDasboard.php';?>
+<!-- aqui ira el contenido -->
 
-<?php include_once __DIR__.'/../templates/sidebar.php';?>
+<!-- fin del contenido -->
 
-<div class="principal">
-<?php include_once __DIR__.'/../templates/barra.php';?>
-</div>
-  
-</div>
+<?php include_once __DIR__.'/../dasboard/footerDasboard.php';?>
 

@@ -41,6 +41,10 @@ $router->get('/confirmar',[LoginController::class,'confirmar']);
 //rutas del dasboard
 $router->get('/dasboard',[DasboardController::class,'index']);
 $router->post('/dasboard',[DasboardController::class,'index']);
+$router->get('/crear_proyecto',[DasboardController::class,'crear_proyecto']);
+$router->post('/crear_proyecto',[DasboardController::class,'crear_proyecto']);
+$router->get('/perfil',[DasboardController::class,'perfil']);
+$router->post('/perfil',[DasboardController::class,'perfil']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

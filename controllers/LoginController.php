@@ -72,7 +72,9 @@ class LoginController
     //metodo logaut del sistema para salir de la seccion
     public static function logout()
     {
-
+            session_start();
+            $_SESSION=[];
+            header('Location:/');
        
     }
 
